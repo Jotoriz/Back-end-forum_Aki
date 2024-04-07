@@ -5,7 +5,7 @@ export const signup = (req, res) => {
   User.findOne({ email: req.body.email }).exec((error, existUser) => {
     if (existUser)
       return res.status(400).json({
-        message: "User already registered",
+        message: "Email này đã được sử dụng",
       });
 
     const { email, password, username } = req.body;

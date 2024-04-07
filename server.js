@@ -34,6 +34,7 @@ app.use("/api", userRoutes);
 app.use("/api", BaiViet);
 app.use("/api", Product);
 app.use("/api", Order);
+app.use("/public", express.static("./src/public"));
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);

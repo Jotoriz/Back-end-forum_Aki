@@ -4,15 +4,15 @@ export const validateSignupRequest = [
   check("username").notEmpty().withMessage("user Name is required"),
   check("email").isEmail().withMessage("valid email is required"),
   check("password")
-    .isLength({ min: 6 })
-    .withMessage("password must be at least 6 character long"),
+    .isLength({ min: 8 })
+    .withMessage("password must be at least 8 character long"),
 ];
 
 export const validateSigninRequest = [
   check("email").isEmail().withMessage("valid email is required"),
   check("password")
-    .isLength({ min: 6 })
-    .withMessage("password must be at least 6 character long"),
+    .isLength({ min: 8 })
+    .withMessage("password must be at least 8 character long"),
 ];
 
 export const isRequestValidated = (req, res, next) => {
