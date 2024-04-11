@@ -9,17 +9,17 @@ const baiVietSchema = new mongoose.Schema(
     id_Types: {
       type: Number,
       required: true,
-      unique: true,
     },
     title: {
       type: String,
       required: true,
     },
     actor: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
       required: true,
     },
-    message: {
+    content: {
       type: String,
     },
     uploadTime: {

@@ -20,12 +20,21 @@ export const getAll = async (req, res) => {
   }
 };
 
-export const getById = async (req, res) => {
+export const getByToken = async (req, res) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     const user = await User.findById(decoded._id);
+    const { _id, username, email, avt, notification } = user;
+    res.status(200).json({ _id, username, email, avt, notification });
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
+};
+export const getById = async (req, res) => {
+  try {
+    const user = await User.findById(req.body.id);
     const { _id, username, email, avt, notification } = user;
     res.status(200).json({ _id, username, email, avt, notification });
   } catch (err) {
@@ -125,7 +134,6 @@ export const uploadAvatar = async (req, res) => {
     }
     const avatar = user.avt;
     const filePath = path.resolve(__dirname, "../" + avatar);
-    console.log(filePath);
 
     user.avt = "/public/image/" + req.file.filename;
     await user.save();

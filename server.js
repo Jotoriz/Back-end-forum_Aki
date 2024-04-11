@@ -8,7 +8,7 @@ import authRoutes from "./src/router/auth.js";
 import userRoutes from "./src/router/user.js";
 import BaiViet from "./src/router/baiViet.js";
 import Product from "./src/router/product.js";
-import Order from "./src/router/order.js";
+import MessageBaiViet from "./src/router/messageBaiViet.js";
 
 // import fileUpload from "express-fileupload";
 
@@ -33,7 +33,7 @@ app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 app.use("/api", BaiViet);
 app.use("/api", Product);
-app.use("/api", Order);
+app.use("/api", MessageBaiViet);
 app.use("/public", express.static("./src/public"));
 
 app.listen(process.env.PORT, () => {

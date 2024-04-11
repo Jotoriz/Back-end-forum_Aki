@@ -24,9 +24,6 @@ const userSchema = new mongoose.Schema(
     avt: {
       type: String,
     },
-    notification: {
-      type: String,
-    },
   },
   { timestamps: true }
 );

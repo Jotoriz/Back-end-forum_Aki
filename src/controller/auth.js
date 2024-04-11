@@ -15,7 +15,6 @@ export const signup = (req, res) => {
       password,
       username,
       avt: "https://a0.anyrgb.com/pngimg/1658/1292/little-boy-icon-little-girl-avatar-ico-icon-design-boy-cartoon-cartoon-character-sitting-cool.png",
-      notification: "",
     });
 
     user.save((error, data) => {
@@ -35,7 +34,6 @@ export const signup = (req, res) => {
             username,
             email,
             avt,
-            notification,
           },
         });
       }
